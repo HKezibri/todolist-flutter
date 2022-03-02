@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/all_tasks.dart';
 
 //import 'package:google_fonts/google_fonts.dart';
 //import 'screens/all_tasks.dart';
@@ -25,24 +26,7 @@ class TodoList extends StatelessWidget{
       theme: ThemeData(
       primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Todo List',
-                  style: TextStyle(
-                  fontFamily: 'AkayaTelivigala',
-                  fontSize: 18,
-                  color: Colors.white
-                ),
-                //style: GoogleFonts.pacifico(),
-            ),
-        ),
-        body: ListView(
-          children: [
-    
-
-          ],
-      ),
+      home: Scaffold(body: AllTasks()  
       ),
     );
   }

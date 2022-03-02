@@ -1,19 +1,15 @@
-//import 'package:flutter/material.dart';
-
 class Task {
-
-  // Attributs
   int id;
   String content;
   bool completed;
   DateTime createdAt;
 
-  //constructor
-  //Task(String sentence, bool boolean, {this.content, this.completed = false});
-  Task(int id, String content, bool completed) {
-    this.id = id;
-    this.content = content;
-    this.completed = completed;
-  }
+  // Read-only non-final property
+  int get launchYear => createdAt?.year;
 
+  // Constructor, with syntactic sugar for assignment to members.
+  Task(this.id, this.completed, this.content, this.createdAt) {
+    // Initialization code goes here.
+  }
 }
+
