@@ -38,9 +38,17 @@ class TaskDetails extends StatelessWidget {
               style: ButtonStyle(
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
               ),
-              onPressed: (
-                  
-              ) { },
+              onPressed: ( ) {
+                   final snackBar = SnackBar(
+                    content: const Text('Are you sure you want to delete?'),
+                    action: SnackBarAction(
+                      label: 'Undo',
+                      onPressed: () {
+                        // Some code to undo the change.
+                      },
+                    ),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);},
               child: Text('Delete'),
             ),
              TextButton(
@@ -49,7 +57,7 @@ class TaskDetails extends StatelessWidget {
               ),
               onPressed: () =>
                   Navigator.of(context).pop(),
-              child: Text('Clause'),
+              child: Text('Cancel'),
             ),
       ],
     );

@@ -25,7 +25,8 @@ class TodoList extends StatelessWidget{
                   style: TextStyle(
                   fontFamily: 'AkayaTelivigala',
                   fontSize: 18,
-                  color: Colors.white
+                  color: Colors.white,
+
                 ),
                 //style: GoogleFonts.pacifico(),
             ),
