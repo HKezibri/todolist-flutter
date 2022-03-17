@@ -42,7 +42,7 @@ class TaskDetails extends StatelessWidget {
                    final snackBar = SnackBar(
                     content: const Text('Are you sure you want to delete?'),
                     action: SnackBarAction(
-                      label: 'Undo',
+                      label: 'Yes',
                       onPressed: () {
                         // Some code to undo the change.
                       },
@@ -56,7 +56,7 @@ class TaskDetails extends StatelessWidget {
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
               ),
               onPressed: () =>
-                  Navigator.of(context).pop(),
+                  Navigator.pop(context),
               child: Text('Cancel'),
             ),
       ],

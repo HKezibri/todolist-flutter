@@ -11,16 +11,5 @@ class Task {
     this.completed = false;
   }
 
-
-
-  void remove(Task task){
-
-  }
-  /*  void update(Task user) {
-    var index = _tasks.indexOf(user);
-
-    _tasks[index] = user;
-
-  } */
 }
 
