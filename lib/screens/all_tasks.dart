@@ -17,21 +17,19 @@ class _AllTasksState extends State<AllTasks> {
     List<Task> task = data.tasks;
 
     Task? chosenTask;
-
-    void viewTask(task){
-      setState(() {
-        chosenTask = task;
-      });
-    }
   
   
   @override
   Widget build(BuildContext context) {
       return Consumer<TasksCollection>(
-        builder: (context, provider, child) {
+        builder: (context, tasksCollection, child) {
         return Scaffold(
         body: Visibility(
-            child: TaskMaster(tasks: task, viewTask: viewTask),
+            child: TaskMaster(tasks: tasksCollection.getAllTask(), viewTask: (Task task)=>{
+              setState(() {
+                chosenTask = task;
+              })
+            }),
             visible: (chosenTask == null),
             replacement: TaskDetails(task: chosenTask),
           ),

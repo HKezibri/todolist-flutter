@@ -7,7 +7,7 @@ class TaskMaster extends StatelessWidget {
 
   const TaskMaster({ Key? key, required this.tasks, required this.viewTask }) : super(key: key);
   final List<Task> tasks;
-  final viewTask;
+  final Function viewTask;
 
   @override
   Widget build(BuildContext context) {
