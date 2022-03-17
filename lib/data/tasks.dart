@@ -7,7 +7,7 @@ var faker = new Faker();
 
 class Tasks extends StatefulWidget {
   final tasks = new List<Task>.generate(
-      30,(i) => Task(i, random.boolean(), faker.lorem.sentence(),
+      30,(i) => Task(i, false, faker.lorem.sentence(),
                 faker.date.dateTime(minYear: 2000, maxYear: 2022)));
 
   @override
@@ -15,6 +15,7 @@ class Tasks extends StatefulWidget {
     /* implement createState */
     throw UnimplementedError();
   }
+
 }
 
 

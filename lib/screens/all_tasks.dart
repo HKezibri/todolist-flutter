@@ -1,26 +1,66 @@
 import 'package:flutter/material.dart';
-//import 'package:todolist/models/task.dart';
+import 'package:todolist/components/tasks/task_details.dart';
+import 'package:todolist/models/task.dart';
 import '../data/tasks.dart' as data;
 import '../components/tasks/task_master.dart';
 
-
-class AllTasks extends StatelessWidget {
-
-   static data.Tasks Task = data.Tasks();
+class AllTasks extends StatefulWidget {
+  const AllTasks({ Key? key }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: SingleChildScrollView(
-            child: ListBody(mainAxis: Axis.vertical, reverse: false, children: [
-            Container(
-            height: 1000,
-            child: TaskMaster(tasks: Task.tasks),
-          ),
-        ])),
-    );
-  }
+  State<AllTasks> createState() => _AllTasksState();
 }
+
+class _AllTasksState extends State<AllTasks> {
+    static data.Tasks task = data.Tasks();
+    Task? chosenTask;
+
+    void viewTask(task){
+      setState(() {
+        chosenTask = task;
+      });
+    }
+    void _addTask() {
+    setState(() {
+      
+    });
+  
+  }
+  @override
+  Widget build(BuildContext context) {
+      return Scaffold(
+        body: Visibility(
+            child: TaskMaster(tasks: task.tasks, viewTask: viewTask),
+            visible: (chosenTask == null),
+            replacement: TaskDetails(task: chosenTask),
+          ),
+             floatingActionButton: FloatingActionButton(
+                onPressed: () =>  showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    content: TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Add Todo'
+                      ),
+                    ),
+                    actions: <Widget>[
+                      TextButton(
+                          onPressed: () {
+                            _addTask();
+                          },
+                          child: Text('Add')),
+                    ],
+                  );
+                }),
+                tooltip: 'Increment',
+                child: const Icon(Icons.add),
+      ),
+      );
+  }
+
+}
+
 
 
 

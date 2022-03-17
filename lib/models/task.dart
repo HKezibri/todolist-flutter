@@ -4,12 +4,23 @@ class Task {
   bool completed;
   DateTime createdAt;
 
-  // Read-only non-final property
-  int get launchYear => createdAt?.year;
-
   // Constructor, with syntactic sugar for assignment to members.
   Task(this.id, this.completed, this.content, this.createdAt) {
     // Initialization code goes here.
+    createdAt = DateTime.now();
+    this.completed = false;
   }
+
+
+
+  void remove(Task task){
+
+  }
+  /*  void update(Task user) {
+    var index = _tasks.indexOf(user);
+
+    _tasks[index] = user;
+
+  } */
 }
 
