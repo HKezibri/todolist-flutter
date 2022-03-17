@@ -12,7 +12,8 @@ class AllTasks extends StatefulWidget {
 }
 
 class _AllTasksState extends State<AllTasks> {
-    static data.Tasks task = data.Tasks();
+    List<Task> task = data.tasks;
+
     Task? chosenTask;
 
     void viewTask(task){
@@ -30,7 +31,7 @@ class _AllTasksState extends State<AllTasks> {
   Widget build(BuildContext context) {
       return Scaffold(
         body: Visibility(
-            child: TaskMaster(tasks: task.tasks, viewTask: viewTask),
+            child: TaskMaster(tasks: task, viewTask: viewTask),
             visible: (chosenTask == null),
             replacement: TaskDetails(task: chosenTask),
           ),
