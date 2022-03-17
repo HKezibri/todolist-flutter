@@ -40,6 +40,7 @@ class TaskDetails extends StatelessWidget {
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
               ),
               onPressed: ( ) {
+                print("difuqdiofuqsdiofusdq");
                 delete(task);
                 /* 
                    final snackBar = SnackBar(
