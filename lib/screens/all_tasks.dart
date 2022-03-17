@@ -17,6 +17,12 @@ class _AllTasksState extends State<AllTasks> {
     List<Task> task = data.tasks;
 
     Task? chosenTask;
+
+    void CloseAlert(){
+      setState(() {
+        chosenTask = null;
+      });
+    }
   
   
   @override
@@ -31,7 +37,23 @@ class _AllTasksState extends State<AllTasks> {
               })
             }),
             visible: (chosenTask == null),
-            replacement: TaskDetails(task: chosenTask, delete: (){tasksCollection.delete(chosenTask!.id);}),
+            replacement: TaskDetails(task: chosenTask, delete: (){
+
+              tasksCollection.delete(chosenTask!.id);
+               final snackBar = SnackBar(
+                    content: const Text('Are you sure you want to delete?'),
+                    action: SnackBarAction(
+                      label: 'Yes',
+                      onPressed: () {
+                        CloseAlert();
+                      },
+                    ),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              
+              
+              }),
+              
           ),
              floatingActionButton: FloatingActionButton(
                 onPressed: () =>  showDialog(

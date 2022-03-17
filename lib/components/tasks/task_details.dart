@@ -31,7 +31,7 @@ class TaskDetails extends StatelessWidget {
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
               ),
               onPressed: () {
-                delete(task);
+                
                },
               child: Text('Update'),
             ),
@@ -40,6 +40,8 @@ class TaskDetails extends StatelessWidget {
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
               ),
               onPressed: ( ) {
+                delete(task);
+                /* 
                    final snackBar = SnackBar(
                     content: const Text('Are you sure you want to delete?'),
                     action: SnackBarAction(
@@ -49,7 +51,7 @@ class TaskDetails extends StatelessWidget {
                       },
                     ),
                   );
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar);},
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar); */},
               child: Text('Delete'),
             ),
              TextButton(
