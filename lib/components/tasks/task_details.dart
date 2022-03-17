@@ -5,7 +5,8 @@ import 'package:todolist/models/task.dart';
 
 
 class TaskDetails extends StatelessWidget {
-  const TaskDetails({Key?key, required this.task});
+  const TaskDetails({Key?key, required this.task, required this.delete});
+  final Function delete;
 
   final Task? task;
 
@@ -30,7 +31,7 @@ class TaskDetails extends StatelessWidget {
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
               ),
               onPressed: () {
-                
+                delete(task);
                },
               child: Text('Update'),
             ),

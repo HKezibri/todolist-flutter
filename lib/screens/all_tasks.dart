@@ -31,7 +31,7 @@ class _AllTasksState extends State<AllTasks> {
               })
             }),
             visible: (chosenTask == null),
-            replacement: TaskDetails(task: chosenTask),
+            replacement: TaskDetails(task: chosenTask, delete: (){tasksCollection.delete(chosenTask!.id);}),
           ),
              floatingActionButton: FloatingActionButton(
                 onPressed: () =>  showDialog(
