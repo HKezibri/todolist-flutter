@@ -5,8 +5,10 @@ import 'package:todolist/models/task.dart';
 
 
 class TaskDetails extends StatelessWidget {
-  const TaskDetails({Key?key, required this.task, required this.delete});
+  const TaskDetails({Key?key, required this.task, required this.delete, required this.close});
   final Function delete;
+  final Function close;
+ 
 
   final Task? task;
 
@@ -40,27 +42,27 @@ class TaskDetails extends StatelessWidget {
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
               ),
               onPressed: ( ) {
-                print("difuqdiofuqsdiofusdq");
-                delete(task);
-                /* 
+                //delete(task);
                    final snackBar = SnackBar(
                     content: const Text('Are you sure you want to delete?'),
                     action: SnackBarAction(
                       label: 'Yes',
                       onPressed: () {
-                        // Some code to undo the change.
+                        delete(task);
                       },
                     ),
                   );
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar); */},
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar); },
               child: Text('Delete'),
             ),
              TextButton(
               style: ButtonStyle(
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
               ),
-              onPressed: () =>
-                  Navigator.pop(context),
+              onPressed: () =>{
+               close()
+              },
+                  
               child: Text('Cancel'),
             ),
       ],

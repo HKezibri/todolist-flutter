@@ -18,6 +18,11 @@ class _AllTasksState extends State<AllTasks> {
 
     Task? chosenTask;
   
+  void CloseAlert(){
+    setState(() {
+      chosenTask = null;
+    });
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -27,17 +32,15 @@ class _AllTasksState extends State<AllTasks> {
         body: Visibility(
             child: TaskMaster(tasks: tasksCollection.getAllTask(), viewTask: (Task task)=>{
               setState(() {
-                chosenTask = task;
-              })
-            }),
-            visible: (chosenTask == null),
-            replacement: TaskDetails(task: chosenTask, delete: (Task task){
-                    setState(() {
-        chosenTask = null;
-      });
-      tasksCollection.delete(task.id);
-            }
-),
+                    chosenTask = task;
+                  })
+                }),
+                visible: (chosenTask == null),
+              replacement: TaskDetails(task: chosenTask, delete: (Task task){
+                        CloseAlert();
+                        tasksCollection.delete(task.id);
+                    }, close: ()=>{CloseAlert()}
+              ),
           ),
              floatingActionButton: FloatingActionButton(
                 onPressed: () =>  showDialog(
